@@ -1,0 +1,50 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log
+yarn-debug.log
+lerna-debug.log
+coverage/
+
+# Database & Cache
+*.sqlite
+*.sqlite-journal
+pgdata/
+redis-data/
+
+# Docker
+docker-compose.override.yml
+docker-compose.debug.yml
+# .dockerignore
+
+# Build files
+build/
+dist/
+.temp
+.cache
+
+# Jest test coverage
+/coverage
+/junit.xml
+
+# VSCode & IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
