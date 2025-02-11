@@ -19,6 +19,7 @@ const models = {
   Event: require("./event")(sequelize, DataTypes),
   Booking: require("./booking")(sequelize, DataTypes),
   WaitingList: require("./waitingList")(sequelize, DataTypes),
+  User: require("./user")(sequelize, DataTypes),
 };
 
 Object.values(models).forEach((model) => {

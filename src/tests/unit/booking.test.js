@@ -2,22 +2,22 @@ const {
   bookTicket,
   cancelBooking,
 } = require("../../src/controllers/bookingController");
-const { Event, Booking, WaitingList } = require("../../src/models");
-const redisLock = require("../../src/utils/redisLock");
-const responseHandler = require("../../src/utils/responseHandler");
+const { Event, Booking, WaitingList } = require("../../models");
+const redisLock = require("../../utils/redisLock");
+const responseHandler = require("../../utils/responseHandler");
 
-jest.mock("../../src/models", () => ({
+jest.mock("../../models", () => ({
   Event: { findByPk: jest.fn() },
   Booking: { create: jest.fn(), findOne: jest.fn(), destroy: jest.fn() },
   WaitingList: { create: jest.fn(), findOne: jest.fn(), destroy: jest.fn() },
 }));
 
-jest.mock("../../src/utils/redisLock", () => ({
+jest.mock("../../utils/redisLock", () => ({
   acquireLock: jest.fn(),
   releaseLock: jest.fn(),
 }));
 
-jest.mock("../../src/utils/responseHandler", () => ({
+jest.mock("../../utils/responseHandler", () => ({
   success: jest.fn(),
   error: jest.fn(),
 }));

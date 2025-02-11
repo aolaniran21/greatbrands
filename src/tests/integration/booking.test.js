@@ -1,6 +1,6 @@
 const request = require("supertest");
-const app = require("../../src/app");
-const { sequelize, Event, Booking, User } = require("../../src/models");
+const app = require("../../app");
+const { sequelize, Event, Booking, User } = require("../../models");
 
 describe("Booking API", () => {
   let event;
@@ -15,6 +15,7 @@ describe("Booking API", () => {
 
     event = await Event.create({
       name: "Test Event",
+      totalTickets: 100,
       availableTickets: 2,
     });
   });

@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull: false,
     },
-    position: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
   });
 
   WaitingList.associate = (models) => {

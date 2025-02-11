@@ -1,6 +1,6 @@
 const request = require("supertest");
-const app = require("../../src/app");
-const { sequelize, Event, User } = require("../../src/models");
+const app = require("../../app");
+const { sequelize, Event, User } = require("../../models");
 
 describe("Event API", () => {
   let user;

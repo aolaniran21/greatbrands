@@ -1,22 +1,19 @@
-const {
-  createEvent,
-  getEventStatus,
-} = require("../../src/controllers/eventController");
-const { Event, WaitingList } = require("../../src/models");
-const logger = require("../../src/utils/logger");
-const responseHandler = require("../../src/utils/responseHandler");
+const { createEvent, getEventStatus } = require("../../api/controllers/event");
+const { Event, WaitingList } = require("../../models");
+const logger = require("../../utils/logger");
+const responseHandler = require("../../utils/responseHandler");
 
-jest.mock("../../src/models", () => ({
+jest.mock("../../models", () => ({
   Event: { create: jest.fn(), findByPk: jest.fn() },
   WaitingList: { count: jest.fn() },
 }));
 
-jest.mock("../../src/utils/logger", () => ({
+jest.mock("../../utils/logger", () => ({
   info: jest.fn(),
   error: jest.fn(),
 }));
 
-jest.mock("../../src/utils/responseHandler", () => ({
+jest.mock("../../utils/responseHandler", () => ({
   success: jest.fn(),
   error: jest.fn(),
 }));
