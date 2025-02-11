@@ -4,7 +4,7 @@ const migrate = async () => {
   try {
     console.log("🔄 Checking for model changes and migrating...");
 
-    await sequelize.sync({ alter: true }); // Auto-detect model changes and apply migrations
+    await sequelize.sync({ alter: true });
 
     console.log("✅ Database migration completed successfully!");
     process.exit(0);

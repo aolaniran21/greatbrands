@@ -1,9 +1,6 @@
-const {
-  bookTicket,
-  cancelBooking,
-} = require("../../src/controllers/bookingController");
+const { bookTicket, cancelBooking } = require("../../api/controllers/booking");
 const { Event, Booking, WaitingList } = require("../../models");
-const redisLock = require("../../utils/redisLock");
+const redisLock = require("../../middlewares/redisLock");
 const responseHandler = require("../../utils/responseHandler");
 
 jest.mock("../../models", () => ({
@@ -12,7 +9,7 @@ jest.mock("../../models", () => ({
   WaitingList: { create: jest.fn(), findOne: jest.fn(), destroy: jest.fn() },
 }));
 
-jest.mock("../../utils/redisLock", () => ({
+jest.mock("../../middlewares/redisLock", () => ({
   acquireLock: jest.fn(),
   releaseLock: jest.fn(),
 }));

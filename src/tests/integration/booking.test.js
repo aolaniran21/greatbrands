@@ -22,9 +22,12 @@ describe("Booking API", () => {
 
   test("should book a ticket successfully", async () => {
     const response = await request(app)
-      .post("/api/bookings")
+      .post("/book")
       .set("Authorization", token)
       .send({ eventId: event.id, userId: user.id });
+
+    console.log("Response status:", response.status);
+    console.log("Response body:", response.body);
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("Ticket booked successfully");
@@ -34,7 +37,7 @@ describe("Booking API", () => {
     await Event.update({ availableTickets: 0 }, { where: { id: event.id } });
 
     const response = await request(app)
-      .post("/api/bookings")
+      .post("/book")
       .set("Authorization", token)
       .send({ eventId: event.id, userId: user.id });
 
@@ -46,7 +49,7 @@ describe("Booking API", () => {
     await Booking.create({ eventId: event.id, userId: user.id });
 
     const response = await request(app)
-      .delete("/api/bookings")
+      .delete("/cancel")
       .set("Authorization", token)
       .send({ eventId: event.id, userId: user.id });
 

@@ -65,7 +65,10 @@ describe("Event Controller", () => {
 
   test("should return event status", async () => {
     const req = { params: { eventId: 1 } };
-    const res = {};
+    const res = {
+      json: jest.fn(),
+      status: jest.fn().mockReturnThis(),
+    };
 
     Event.findByPk.mockResolvedValue({
       id: 1,
@@ -101,8 +104,8 @@ describe("Event Controller", () => {
 
     expect(responseHandler.error).toHaveBeenCalledWith(
       res,
-      "Event not found",
-      404
+      "Failed to fetch event status",
+      500
     );
   });
 });

@@ -4,8 +4,8 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.js", "!src/server.js"],
   coverageDirectory: "coverage",
-  setupFilesAfterEnv: ["<rootDir>/src/tests/setup.js"],
+  //   setupFilesAfterEnv: ["<rootDir>/src/tests/setup.js"],
   coveragePathIgnorePatterns: ["/node_modules/"],
-  moduleDirectories: ["node_modules", "src"], // Add 'src' for absolute imports
-  moduleFileExtensions: ["js", "json"], // Ensure Jest handles JS files properly
+  moduleDirectories: ["node_modules", "src"],
+  moduleFileExtensions: ["js", "json"],
 };

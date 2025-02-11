@@ -15,7 +15,7 @@ describe("Event API", () => {
 
   test("should create an event successfully", async () => {
     const response = await request(app)
-      .post("/api/events")
+      .post("/events")
       .set("Authorization", token)
       .send({ name: "Test Event", totalTickets: 100 });
 
@@ -31,7 +31,7 @@ describe("Event API", () => {
     });
 
     const response = await request(app)
-      .get(`/api/events/${event.id}`)
+      .get(`/events/${event.id}`)
       .set("Authorization", token);
 
     expect(response.status).toBe(200);
@@ -41,7 +41,7 @@ describe("Event API", () => {
 
   test("should return 404 if event not found", async () => {
     const response = await request(app)
-      .get("/api/events/999")
+      .get("/events/999")
       .set("Authorization", token);
 
     expect(response.status).toBe(404);
